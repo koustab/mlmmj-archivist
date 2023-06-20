@@ -31,7 +31,9 @@ dependency : we need few packages to run this script
 Basic UNIX utilities: awk, cat, date, grep, install, sed and, of course, sh. ( check up )
 
 git clone https://github.com/eellak/mlmmj-archivist.git
+
 cd mlmmj-archivist
+
 sed -i -e "s:date --date:gdate --date:g" mlmmj-archivist.sh
 
 ** what it does
