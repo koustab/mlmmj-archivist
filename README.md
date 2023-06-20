@@ -19,6 +19,39 @@ Tested on Debian Wheezy. Currently it requires GNU date so it is not very portab
 
 The current Makefile requires GNU make. In future versions it should work with BSD make too.
 
+##OpenBSD installation##
+installation :
+dependency : we need few packages to run this script 
+1. MHonArc.
+2. rsync.
+3. coreutils
+
+Basic UNIX utilities: awk, cat, date, grep, install, sed and, of course, sh. ( check up )
+
+git clone https://github.com/eellak/mlmmj-archivist.git
+cd mlmmj-archivist
+sed -i -e "s:date --date:gdate --date:g" mlmmj-archivist.sh
+
+** what it does
+to run this on OpenBSD GNU date needed, as we have installed coreutils 
+package already it will replace date in the script with gdate.
+
+make install
+After completing the installation you should copy the configuration files mlmmj-archivist.conf.sample to mlmmj-archivist.conf, 
+and mhonarc.mrc.sample to mhonarc.mrc, and tweak to your preference, prior to running the script
+
+both of the files can be found in /etc/mlmmj-archivist. ( well after installation )
+
+we need to create archivist dir in each mailing list dir
+
+corntab 
+*/1      *       *       *       *       /usr/local/bin/mlmmj-archivist
+
+add the above line in crontab to archive the list.
+
+also the PATH one top should look like this
+PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin
+
 ## Installation
 
 Running
